@@ -15,4 +15,16 @@ function createGrid(sizeOfGrid){
     document.querySelector('#content').appendChild(grid);
 }
 
-createGrid(64);
+function updateSliderValue(){
+    const value = document.querySelector("#value");
+    const input = document.querySelector("#slider");
+    value.textContent = input.value;
+    input.addEventListener("input", () => value.textContent = input.value);
+}
+
+function updateGrid(){
+    
+}
+
+createGrid(16);
+updateSliderValue();
