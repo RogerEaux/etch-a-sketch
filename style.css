@@ -16,7 +16,7 @@ body{
 
 #options{
     margin-bottom: 24px;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -35,8 +35,12 @@ body{
     border: none;
 }
 
+#slider{
+    width: 80px;
+}
+
 button{
-    padding: 8px 12px;
+    padding: 8px;
     background-color: aquamarine;
     color: #00003b;
     border: none;
