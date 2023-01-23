@@ -30,22 +30,28 @@ function updateNewGrid(){
 }
 
 function changeColour(){
-    this.setAttribute('style','background-color: red')
+    const colour = document.querySelector('#colour');
+    this.style.backgroundColor = colour.value;
+}
+
+function allowDraw(){
+    const gridCells = document.querySelectorAll('#grid .row .column');
+    gridCells.forEach(cell =>{
+        cell.addEventListener('mouseover', changeColour);
+    });
+}
+
+function blockDraw(){
+    const gridCells = document.querySelectorAll('#grid .row .column');
+    gridCells.forEach(cell =>{
+        cell.removeEventListener('mouseover', changeColour);
+    });
 }
 
 function checkMouse(){
     const grid = document.querySelector('#grid');
-    const gridCells = document.querySelectorAll('#grid .row .column');
-    grid.addEventListener('mousedown', () =>{
-        gridCells.forEach(cell =>{
-            cell.addEventListener('mouseover', changeColour);
-        });
-    });
-    grid.addEventListener('mouseup', () =>{
-        gridCells.forEach(cell =>{
-            cell.removeEventListener('mouseover', changeColour);
-        });
-    });
+    grid.addEventListener('mousedown', allowDraw);
+    grid.addEventListener('mouseup', blockDraw);
 }
 
 createGrid(16);

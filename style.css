@@ -52,10 +52,6 @@ body{
     flex: 1;
 }
 
-.column{
-    border: 1px solid violet;
-}
-
 #footer,
 #header{
     justify-content: center;
