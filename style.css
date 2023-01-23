@@ -1,5 +1,9 @@
+*{
+    margin : 0;
+    padding: 0;
+}
+
 body{
-    margin: 0;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
@@ -41,7 +45,7 @@ body{
 
 button{
     padding: 8px;
-    background-color: aquamarine;
+    background-color: #7fffd4;
     color: #00003b;
     border: none;
     border-radius: 4px;

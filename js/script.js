@@ -32,21 +32,39 @@ function updateGrid(){
 }
 
 function clearBackground(){
-    const backgroundColor = document.querySelector('#background');
+    const backgroundColour = document.querySelector('#background');
     const gridCells = document.querySelectorAll('#grid .row .column');
-    gridCells.forEach(cell => cell.style.backgroundColor = backgroundColor.value);
+    gridCells.forEach(cell => cell.style.backgroundColor = backgroundColour.value);
 }
 
 function changeBackgroundColour(){
-    const backgroundColor = document.querySelector('#background');
+    const backgroundColour = document.querySelector('#background');
     const clear = document.querySelector('#clear');
-    backgroundColor.addEventListener('input', clearBackground);
+    backgroundColour.addEventListener('input', clearBackground);
     clear.addEventListener('click',clearBackground);
+}
+
+function getRandomvalue(){
+    return Math.floor(Math.random() * 256);
 }
 
 function changeColour(){
     const colour = document.querySelector('#colour');
-    this.style.backgroundColor = colour.value;
+    const backgroundColour = document.querySelector('#background');
+    const draw = document.querySelector('#draw');
+    const rgb = document.querySelector('#rgb');
+    const eraser = document.querySelector('#eraser');
+    let paint;
+
+    if(draw.style.color === 'rgb(127, 255, 212)'){
+        paint = colour.value;
+    }else if(eraser.style.color === 'rgb(127, 255, 212)'){
+        paint = backgroundColour.value;
+    }else{
+        paint = `rgb(${getRandomvalue()}, ${getRandomvalue()}, ${getRandomvalue()})`; 
+    }
+
+    this.style.backgroundColor = paint;
 }
 
 function allowDraw(){
@@ -65,10 +83,32 @@ function checkMouse(){
     grid.addEventListener('mouseup', blockDraw);
 }
 
+function selectButton(){
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.style.color = '#00003b';
+        button.style.backgroundColor = '#7fffd4';
+    });
+    this.style.color = '#7fffd4';
+    this.style.backgroundColor = '#00003b';
+}
+
+function checkButtonSelected(){
+    const draw = document.querySelector('#draw');
+    const rgb = document.querySelector('#rgb');
+    const eraser = document.querySelector('#eraser');
+    draw.style.color = '#7fffd4';
+    draw.style.backgroundColor = '#00003b';
+    draw.addEventListener('click',selectButton);
+    rgb.addEventListener('click',selectButton);
+    eraser.addEventListener('click',selectButton);
+}
+
 function setUp(){
     createGrid(16);
     updateGrid();
     changeBackgroundColour();
+    checkButtonSelected();
 }
 
 setUp();
