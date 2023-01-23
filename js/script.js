@@ -12,19 +12,23 @@ function createGrid(sizeOfGrid){
         }
         grid.appendChild(row);   
     }
-    document.querySelector('#content').appendChild(grid);
-}
-
-function updateSliderValue(){
-    const value = document.querySelector("#value");
-    const input = document.querySelector("#slider");
-    value.textContent = input.value;
-    input.addEventListener("input", () => value.textContent = input.value);
+    const content = document.querySelector('#content')
+    content.appendChild(grid);
 }
 
 function updateGrid(){
-    
+    const value = document.querySelector('#value');
+    const input = document.querySelector('#slider');
+    value.textContent = input.value;
+    input.addEventListener("input", () =>{
+        value.textContent = input.value;
+        const grid = document.querySelector('#grid')
+        grid.remove();
+        createGrid(value.textContent);
+    });
 }
 
+
+
 createGrid(16);
-updateSliderValue();
+updateGrid();
