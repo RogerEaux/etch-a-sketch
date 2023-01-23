@@ -16,12 +16,16 @@ body{
 #content{
     flex-direction: column;
     align-self: center;
+    align-items: center;
 }
 
 #options{
     margin-bottom: 24px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 500px;
 }
 
 #options .container{
@@ -88,15 +92,23 @@ button:hover{
 }
 
 @media (max-width: 850px){
+    #grid,
+    #options{
+        width: 400px;
+    }
+
     #grid{
         height: 400px;
-        width: 400px;
     }
 }
 
 @media (max-width: 650px){
+    #grid,
+    #options{
+        width: 300px;
+    }
+    
     #grid{
         height: 300px;
-        width: 300px;
     }
 }
