@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+}
+
+#display,
+#grid{
+    flex-direction: column;
+}
+
+#options{
+    flex: 2;
+}
+
+#display{
+    flex: 6;
+    align-items: center;
+}
+
+#grid{
+    height: 600px;
+    width: 600px;
+}
+
+.row{
+    flex: 1;
+}
+
+.column{
+    flex: 1;
+    text-align: center;
+    border: 2px solid red;
+}
