@@ -12,7 +12,6 @@ body{
 #content{
     flex-direction: column;
     align-self: center;
-    justify-content: center;
 }
 
 #options{
@@ -25,7 +24,7 @@ body{
     flex-direction: column;
     align-items: center;
     color:#00003b;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 900;
 }
 
@@ -36,12 +35,26 @@ body{
     border: none;
 }
 
+button{
+    padding: 8px 12px;
+    background-color: aquamarine;
+    color: #00003b;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+button:hover{
+    background-color: #0fffd4;
+}
+
 #grid{
     height: 500px;
     width: 500px;
     flex-direction: column;
     box-shadow: 0px 4px 8px #0F0F0F;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 }
 
 .column,
@@ -62,7 +75,8 @@ body{
 #footer{
     background-color: #00003b;
     color: aquamarine;
-    margin-top: 12px;
+    margin-top: 16px;
+    font-weight: 900;
 }
 
 @media (max-width: 850px){

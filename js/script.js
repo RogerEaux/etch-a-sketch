@@ -31,12 +31,17 @@ function updateGrid(){
     });
 }
 
+function clearBackground(){
+    const backgroundColor = document.querySelector('#background');
+    const gridCells = document.querySelectorAll('#grid .row .column');
+    gridCells.forEach(cell => cell.style.backgroundColor = backgroundColor.value);
+}
+
 function changeBackgroundColour(){
     const backgroundColor = document.querySelector('#background');
-    backgroundColor.addEventListener('input', () =>{
-        const gridCells = document.querySelectorAll('#grid .row .column');
-        gridCells.forEach(cell => cell.style.backgroundColor = backgroundColor.value);
-    })
+    const clear = document.querySelector('#clear');
+    backgroundColor.addEventListener('input', clearBackground);
+    clear.addEventListener('click',clearBackground);
 }
 
 function changeColour(){
