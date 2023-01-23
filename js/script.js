@@ -1,5 +1,6 @@
 function createGrid(sizeOfGrid){
     const grid = document.createElement('div');
+    const backgroundColor = document.querySelector('#background');
     grid.setAttribute('id','grid');
     grid.setAttribute('class','container')
     for(let i = 0; i < sizeOfGrid; i++){
@@ -8,6 +9,7 @@ function createGrid(sizeOfGrid){
         for(let j = 0; j < sizeOfGrid; j++){
             let column = document.createElement('div');
             column.classList.add('column')
+            column.style.backgroundColor = backgroundColor.value;
             row.appendChild(column);
         }
         grid.appendChild(row);   
@@ -17,7 +19,7 @@ function createGrid(sizeOfGrid){
     checkMouse();
 }
 
-function updateNewGrid(){
+function updateGrid(){
     const value = document.querySelector('#value');
     const input = document.querySelector('#slider');
     value.textContent = input.value;
@@ -29,6 +31,14 @@ function updateNewGrid(){
     });
 }
 
+function changeBackgroundColour(){
+    const backgroundColor = document.querySelector('#background');
+    backgroundColor.addEventListener('input', () =>{
+        const gridCells = document.querySelectorAll('#grid .row .column');
+        gridCells.forEach(cell => cell.style.backgroundColor = backgroundColor.value);
+    })
+}
+
 function changeColour(){
     const colour = document.querySelector('#colour');
     this.style.backgroundColor = colour.value;
@@ -36,16 +46,12 @@ function changeColour(){
 
 function allowDraw(){
     const gridCells = document.querySelectorAll('#grid .row .column');
-    gridCells.forEach(cell =>{
-        cell.addEventListener('mouseover', changeColour);
-    });
+    gridCells.forEach(cell => cell.addEventListener('mouseover', changeColour));
 }
 
 function blockDraw(){
     const gridCells = document.querySelectorAll('#grid .row .column');
-    gridCells.forEach(cell =>{
-        cell.removeEventListener('mouseover', changeColour);
-    });
+    gridCells.forEach(cell => cell.removeEventListener('mouseover', changeColour));
 }
 
 function checkMouse(){
@@ -54,5 +60,11 @@ function checkMouse(){
     grid.addEventListener('mouseup', blockDraw);
 }
 
-createGrid(16);
-updateNewGrid();
+function setUp(){
+    createGrid(16);
+    updateGrid();
+    changeBackgroundColour();
+}
+
+setUp();
+
