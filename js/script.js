@@ -14,9 +14,10 @@ function createGrid(sizeOfGrid){
     }
     const content = document.querySelector('#content')
     content.appendChild(grid);
+    checkMouse();
 }
 
-function updateGrid(){
+function updateNewGrid(){
     const value = document.querySelector('#value');
     const input = document.querySelector('#slider');
     value.textContent = input.value;
@@ -28,7 +29,24 @@ function updateGrid(){
     });
 }
 
+function changeColour(){
+    this.setAttribute('style','background-color: red')
+}
 
+function checkMouse(){
+    const grid = document.querySelector('#grid');
+    const gridCells = document.querySelectorAll('#grid .row .column');
+    grid.addEventListener('mousedown', () =>{
+        gridCells.forEach(cell =>{
+            cell.addEventListener('mouseover', changeColour);
+        });
+    });
+    grid.addEventListener('mouseup', () =>{
+        gridCells.forEach(cell =>{
+            cell.removeEventListener('mouseover', changeColour);
+        });
+    });
+}
 
 createGrid(16);
-updateGrid();
+updateNewGrid();

@@ -17,7 +17,26 @@ body{
 
 #options{
     margin-bottom: 24px;
-    padding: 12px 0;
+
+    justify-content: space-evenly;
+}
+
+.slidecontainer{
+    color:#00003b;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.slidecontainer p{
+    text-align: center;
+    margin: 0;
+}
+
+#colour{
+    appearance: none;
+    height: 50px;
+    width: 50px;
+    border: none;
 }
 
 #grid{
@@ -40,18 +59,17 @@ body{
 #footer,
 #header{
     justify-content: center;
-    padding: 12px;
+    padding: 16px;
 }
 
 #header{
     color: #00003b;
-    margin-bottom: 12px;
 }
 
 #footer{
     background-color: #00003b;
     color: aquamarine;
-    margin-top: 16px;
+    margin-top: 12px;
 }
 
 @media (max-width: 850px){
