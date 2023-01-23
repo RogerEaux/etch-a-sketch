@@ -12,7 +12,7 @@ function createGrid(sizeOfGrid){
         }
         grid.appendChild(row);   
     }
-    document.querySelector('#display').appendChild(grid);
+    document.querySelector('#content').appendChild(grid);
 }
 
-createGrid(32);
+createGrid(64);

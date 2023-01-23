@@ -9,44 +9,58 @@ body{
     display: flex;
 }
 
-#display,
-#grid{
+#content{
     flex-direction: column;
-}
-
-#options{
-    flex: 2;
+    align-self: center;
+    justify-content: center;
 }
 
 #display{
-    flex: 6;
+    flex: 4;
     align-items: center;
-    
+    padding: 32px;
 }
 
 #grid{
     height: 500px;
     width: 500px;
-    padding: 32px;
-
+    flex-direction: column;
+    box-shadow: 0px 4px 8px #0F0F0F;
 }
 
+#options,
+.column,
 .row{
     flex: 1;
 }
 
-.column{
-    flex: 1;
-    text-align: center;
-    border: 1px solid red;
+#footer,
+#header{
+    justify-content: center;
+    padding: 12px;
+}
+
+#header{
+    color: #00003b;
+    margin-bottom: 12px;
 }
 
 #footer{
-    min-width: 564px;
     background-color: #00003b;
     color: aquamarine;
-    display: flex;
-    justify-content: center;
-    padding: 12px;
     margin-top: 12px;
+}
+
+@media (max-width: 850px){
+    #grid{
+        height: 400px;
+        width: 400px;
+    }
+}
+
+@media (max-width: 650px){
+    #grid{
+        height: 300px;
+        width: 300px;
+    }
 }
